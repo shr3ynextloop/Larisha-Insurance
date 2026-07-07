@@ -106,8 +106,7 @@ export function Header() {
           className="flex items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
-         
-            <Logo className="text-white" />
+          <Logo className="text-white" />
 
           <div className="flex flex-col leading-none">
             <span className="text-[#1a1a2e] font-extrabold text-base tracking-tight">
@@ -291,7 +290,10 @@ export function Footer() {
     <footer className="bg-[#1a1a2e] text-white">
       {/* Partner strip */}
       <div className="border-b border-white/10 overflow-x-auto">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center gap-4 min-w-max sm:min-w-0 sm:justify-center">
+        <div className="text-center text-white/40 text-sm mt-2 uppercase tracking-[0.18em] font-semibold">
+          Partners 
+        </div>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3 flex items-center gap-4 min-w-max sm:min-w-0 sm:justify-center">
           {PARTNERS.map((p, i) => (
             <div
               key={i}
@@ -319,12 +321,11 @@ export function Footer() {
 
       {/* Main columns */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-
-                <Logo  />
+              <Logo />
 
               <div className="flex flex-col leading-none">
                 <span className="font-extrabold text-sm">Larisha</span>
@@ -337,31 +338,20 @@ export function Footer() {
               Bridging hospitals, patients, and insurers for faster, stress-free
               claim settlements.
             </p>
-            <div className="flex flex-col gap-1.5 text-white/40 text-xs">
-              <span className="flex items-center gap-1.5">
-                <Mail size={11} /> info@larishainsurance.com
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Phone size={11} /> +91 98765 43210
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin size={11} /> Mumbai, Maharashtra
-              </span>
-            </div>
           </div>
 
           {/* About */}
           <div>
-            <p className="font-bold text-sm mb-4">About</p>
+            <p className="font-bold text-sm mb-4">Quick Links</p>
             <ul className="flex flex-col gap-2.5">
-              {["Our Story", "Our Team", "Mission & Values", "Careers"].map(
-                (item) => (
-                  <li key={item}>
+              {[...NAV, { label: "Contact", to: "/contact" }].map(
+                ({ label, to }) => (
+                  <li key={to}>
                     <NavLink
-                      to="/about"
+                      to={to}
                       className="text-white/40 text-sm hover:text-white transition-colors"
                     >
-                      {item}
+                      {label}
                     </NavLink>
                   </li>
                 ),
