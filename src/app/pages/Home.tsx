@@ -1,6 +1,7 @@
 import {
   FileText, Building2, ClipboardCheck, CreditCard,
   Link2, TrendingUp, BarChart3, Users, CheckCircle,
+  ArrowRight, LayoutGrid,
 } from "lucide-react";
 import { Accent, Pill, TestimonialsBlock } from "../shared";
 
@@ -41,8 +42,8 @@ export default function Home() {
               Fast. Transparent. Reliable Healthcare Financial Solutions.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Pill variant="outline" to="/contact">Get Started Today</Pill>
-              <Pill variant="outline" to="/services">Our Services</Pill>
+              <Pill variant="orange" to="/contact">Get Started Today <ArrowRight size={15} /></Pill>
+              <Pill variant="outline" to="/services"><LayoutGrid size={14} /> Our Services</Pill>
             </div>
           </div>
 
