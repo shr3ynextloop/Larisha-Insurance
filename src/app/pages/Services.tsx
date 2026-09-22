@@ -105,19 +105,46 @@ export default function Services() {
             {SERVICE_CARDS.map(({ Icon, label, desc, bg, color }, i) => (
               <div
                 key={i}
-                className="bg-white border border-black/[0.06] rounded-2xl p-7 hover:shadow-lg transition-all duration-200 group cursor-default"
+                className="relative bg-white border-2 border-transparent rounded-2xl p-7 cursor-default overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
+                style={{ ["--hover-border" as string]: color }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.borderColor = color)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.borderColor = "transparent")
+                }
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-105"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-105"
                   style={{ backgroundColor: bg }}
                 >
                   <Icon size={26} style={{ color }} />
                 </div>
-                <h3 className="font-extrabold text-[#1a1a2e] mb-2.5 text-base leading-snug">{label}</h3>
-                <p className="text-sm text-[#4a4a6a] leading-relaxed mb-5">{desc}</p>
-                <div className="flex items-center gap-1 text-xs font-bold" style={{ color }}>
-                  Learn more <ChevronRight size={13} />
+
+                <h3 className="font-extrabold text-[#1a1a2e] mb-2.5 text-base leading-snug">
+                  {label}
+                </h3>
+                <p className="text-sm text-[#4a4a6a] leading-relaxed mb-5">
+                  {desc}
+                </p>
+
+
+                <div
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full border transition-colors duration-200"
+                  style={{ color, borderColor: color, backgroundColor: bg + "55" }}
+                >
+                  Learn more
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                  </svg>
                 </div>
+
+
+                <div
+                  className="absolute bottom-0 right-0 w-20 h-20 rounded-tl-full opacity-10"
+                  style={{ backgroundColor: color }}
+                />
               </div>
             ))}
           </div>

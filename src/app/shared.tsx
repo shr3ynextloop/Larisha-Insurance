@@ -240,7 +240,7 @@ export function TestimonialsBlock() {
 
         {/* Avatar strip with arrows */}
         <div className="flex justify-center items-center gap-6 mb-10">
-          {/* Left arrow */}
+
           <button
             onClick={prev}
             className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#1a1a2e] hover:bg-[#E0A82E] hover:text-white transition-all duration-200 flex-shrink-0"
@@ -260,8 +260,8 @@ export function TestimonialsBlock() {
                   src={t.avatar}
                   alt={t.name}
                   className={`w-12 h-12 object-cover rounded-full transition-all duration-300 ${i === active
-                      ? "ring-4 ring-[#3BBFAD] ring-offset-2 shadow-lg"
-                      : "ring-2 ring-white shadow-md opacity-70"
+                    ? "ring-4 ring-[#3BBFAD] ring-offset-2 shadow-lg"
+                    : "ring-2 ring-white shadow-md opacity-70"
                     }`}
                 />
                 <Stars n={5} size={10} />
@@ -269,7 +269,7 @@ export function TestimonialsBlock() {
             ))}
           </div>
 
-          {/* Right arrow */}
+
           <button
             onClick={next}
             className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#1a1a2e] hover:bg-[#E0A82E] hover:text-white transition-all duration-200 flex-shrink-0"
@@ -287,8 +287,8 @@ export function TestimonialsBlock() {
                 key={i}
                 onClick={() => setActive(i)}
                 className={`relative rounded-2xl p-7 flex flex-col cursor-pointer transition-all duration-300 overflow-hidden ${isActive
-                    ? "bg-white border-2 border-[#3BBFAD] shadow-xl"
-                    : "bg-white border-2 border-transparent shadow-sm hover:shadow-md hover:-translate-y-1"
+                  ? "bg-white border-2 border-[#3BBFAD] shadow-xl"
+                  : "bg-white border-2 border-transparent shadow-sm hover:shadow-md hover:-translate-y-1"
                   }`}
               >
                 {/* Card top roww */}
@@ -342,8 +342,8 @@ export function TestimonialsBlock() {
               key={i}
               onClick={() => setActive(i)}
               className={`rounded-full transition-all duration-300 ${i === active
-                  ? "w-6 h-2.5 bg-[#E0A82E]"
-                  : "w-2.5 h-2.5 bg-[#1a1a2e]/20 hover:bg-[#1a1a2e]/40"
+                ? "w-6 h-2.5 bg-[#E0A82E]"
+                : "w-2.5 h-2.5 bg-[#1a1a2e]/20 hover:bg-[#1a1a2e]/40"
                 }`}
             />
           ))}
