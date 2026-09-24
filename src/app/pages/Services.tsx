@@ -70,14 +70,33 @@ export default function Services() {
       <section className="bg-[#FBF7F0] pt-14 pb-16 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-xs font-bold text-[#E0A82E] uppercase tracking-[0.18em] mb-3">What we do</p>
+
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-8 bg-[#E0A82E]" />
+              <p className="text-xs font-bold text-[#E0A82E] uppercase tracking-[0.18em]">What we do</p>
+              <div className="h-px w-8 bg-[#E0A82E]" />
+            </div>
+
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#1a1a2e] leading-[1.15] mb-5">
               End-to-End <Accent color="#009387">Healthcare</Accent> Financial Services
             </h1>
             <p className="text-[#4a4a6a] text-lg leading-relaxed mb-8 max-w-md">
               From hospital credit billing to empanelment — every financial service your hospital needs, handled by experts.
             </p>
-            <Pill variant="teal" to="/contact">Talk to an Expert</Pill>
+
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#E0A82E] text-white text-sm font-bold px-6 py-3.5 rounded-full hover:bg-[#d49820] transition-colors shadow-md"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              Talk to an Expert
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+
           </div>
 
           {/* Photo inside large orange circle */}
