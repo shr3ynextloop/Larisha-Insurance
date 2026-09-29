@@ -68,7 +68,7 @@ export default function Services() {
     <main>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="bg-[#FBF7F0] pt-14 pb-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
 
             <div className="flex items-center gap-3 mb-3">

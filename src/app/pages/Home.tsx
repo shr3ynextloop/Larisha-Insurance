@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="bg-[#FBF7F0] pt-14 pb-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-[#FEF0E6] rounded-full px-4 py-1.5 mb-7">
               <CheckCircle size={13} className="text-[#E0A82E]" />
@@ -82,7 +82,7 @@ export default function Home() {
             Why hospitals choose us?{" "}
             <span className="font-extrabold text-[#1a1a2e]">The numbers speak for themselves.</span>
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-md mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-md md:max-w-lg mx-auto">
             <div className="bg-[#E0A82E] rounded-2xl p-8 text-white text-center shadow-md">
               <p className="text-5xl font-extrabold leading-none mb-2">98%</p>
               <p className="text-sm opacity-80 leading-snug">Claim approval rate across all submissions</p>
@@ -106,7 +106,7 @@ export default function Home() {
               Our <Accent>Services</Accent>
             </h2>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-8 gap-5 sm:gap-6">
+          <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-5 md:gap-6">
             {SERVICES.map(({ Icon, label, bg, color }, i) => (
               <div key={i} className="flex flex-col items-center gap-3 group cursor-default">
                 <div
@@ -126,7 +126,7 @@ export default function Home() {
 
       {/* ── Why Choose Us ─────────────────────────────────────────────────── */}
       <section className="py-20 bg-[#FBF7F0]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Illustration: scattered billing/ID cards */}
           <div className="relative flex items-center justify-center min-h-[280px]">
             <div className="absolute w-56 h-56 rounded-full bg-[#E6F7F5]/80" />
