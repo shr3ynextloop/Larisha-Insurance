@@ -286,9 +286,9 @@ export function TestimonialsBlock() {
               <div
                 key={i}
                 onClick={() => setActive(i)}
-                className={`relative rounded-2xl p-7 flex flex-col cursor-pointer transition-all duration-300 overflow-hidden ${isActive
-                  ? "bg-white border-2 border-[#3BBFAD] shadow-xl"
-                  : "bg-white border-2 border-transparent shadow-sm hover:shadow-md hover:-translate-y-1"
+                className={`relative rounded-2xl p-7 flex-col cursor-pointer transition-all duration-300 overflow-hidden ${isActive
+                  ? "bg-white border-2 border-[#3BBFAD] shadow-xl flex"
+                  : "bg-white border-2 border-transparent shadow-sm hover:shadow-md hover:-translate-y-1 hidden md:flex"
                   }`}
               >
                 {/* Card top roww */}
