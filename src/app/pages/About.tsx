@@ -26,11 +26,11 @@ const TEAM = [
 ];
 
 const VALUES = [
-  { label: "Integrity",   color: "#E0A82E" },
-  { label: "Accuracy",    color: "#3BBFAD" },
-  { label: "Compassion",  color: "#E89098" },
-  { label: "Efficiency",  color: "#9B8DC4" },
-  { label: "Innovation",  color: "#5AAAD8" },
+  { label: "Integrity", color: "#E0A82E" },
+  { label: "Accuracy", color: "#3BBFAD" },
+  { label: "Compassion", color: "#E89098" },
+  { label: "Efficiency", color: "#9B8DC4" },
+  { label: "Innovation", color: "#5AAAD8" },
 ];
 
 export default function About() {
@@ -38,7 +38,7 @@ export default function About() {
     <main>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="bg-[#FBF7F0] pt-14 pb-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <p className="text-xs font-bold text-[#E0A82E] uppercase tracking-[0.18em] mb-3">About us</p>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#1a1a2e] leading-[1.15] mb-5">
@@ -64,7 +64,7 @@ export default function About() {
 
       {/* ── Company story strip + 4.9 badge ──────────────────────────────── */}
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-xs font-bold text-[#E0A82E] uppercase tracking-[0.18em] mb-3">Our story</p>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a1a2e] mb-4 leading-snug">
@@ -115,7 +115,7 @@ export default function About() {
               Our <Accent>Team.</Accent> Meet your team.
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
             {TEAM.map((member, i) => (
               <div key={i} className="flex flex-col items-center gap-4 text-center max-w-xs">
                 <div className="relative w-36 h-36">
@@ -139,7 +139,7 @@ export default function About() {
 
       {/* ── Our Mission ───────────────────────────────────────────────────── */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <img
             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=520&h=380&fit=crop&auto=format"
             alt="Healthcare team collaborating"
@@ -170,7 +170,7 @@ export default function About() {
 
       {/* ── Our Vision ────────────────────────────────────────────────────── */}
       <section className="py-20 bg-[#FBF7F0]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-xs font-bold text-[#3BBFAD] uppercase tracking-[0.18em] mb-3">Where we're headed</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a2e] mb-6">

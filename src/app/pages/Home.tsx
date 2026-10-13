@@ -1,26 +1,27 @@
 import {
   FileText, Building2, ClipboardCheck, CreditCard,
   Link2, TrendingUp, BarChart3, Users, CheckCircle,
+  ArrowRight, LayoutGrid,
 } from "lucide-react";
 import { Accent, Pill, TestimonialsBlock } from "../shared";
 
 const SERVICES = [
-  { Icon: FileText,       label: "Hospital Credit\nBilling",     bg: "#FEF0E6", color: "#E0A82E" },
-  { Icon: Building2,      label: "TPA Desk\nManagement",         bg: "#E6F7F5", color: "#3BBFAD" },
-  { Icon: ClipboardCheck, label: "Mediclaim\nProcessing",        bg: "#FDE8EA", color: "#E89098" },
-  { Icon: CreditCard,     label: "Cashless Claims\nSupport",     bg: "#EDE8F7", color: "#9B8DC4" },
-  { Icon: Link2,          label: "Insurance\nLiaison",           bg: "#E6F2FB", color: "#5AAAD8" },
-  { Icon: TrendingUp,     label: "Revenue\nAssurance",           bg: "#FEF0E6", color: "#E0A82E" },
-  { Icon: BarChart3,      label: "Reconciliation\nServices",     bg: "#E6F7F5", color: "#3BBFAD" },
-  { Icon: Users,          label: "Empanelment\nSupport",         bg: "#FDE8EA", color: "#E89098" },
+  { Icon: FileText, label: "Hospital Credit\nBilling", bg: "#FEF0E6", color: "#E0A82E" },
+  { Icon: Building2, label: "TPA Desk\nManagement", bg: "#E6F7F5", color: "#3BBFAD" },
+  { Icon: ClipboardCheck, label: "Mediclaim\nProcessing", bg: "#FDE8EA", color: "#E89098" },
+  { Icon: CreditCard, label: "Cashless Claims\nSupport", bg: "#EDE8F7", color: "#9B8DC4" },
+  { Icon: Link2, label: "Insurance\nLiaison", bg: "#E6F2FB", color: "#5AAAD8" },
+  { Icon: TrendingUp, label: "Revenue\nAssurance", bg: "#FEF0E6", color: "#E0A82E" },
+  { Icon: BarChart3, label: "Reconciliation\nServices", bg: "#E6F7F5", color: "#3BBFAD" },
+  { Icon: Users, label: "Empanelment\nSupport", bg: "#FDE8EA", color: "#E89098" },
 ];
 
 const WHY = [
-  { stat: "Speed & Accuracy",    desc: "Faster billing cycles with near-zero error rates in claim submissions",    color: "#E0A82E" },
-  { stat: "TPA Expertise",       desc: "Deep experience with all major TPAs and insurer portals",                  color: "#3BBFAD" },
-  { stat: "Trusted Hospitals",   desc: "Partnered with 200+ leading hospitals across India",                       color: "#9B8DC4" },
-  { stat: "IRDAI Compliant",     desc: "End-to-end secure data handling aligned with regulatory requirements",     color: "#5AAAD8" },
-  { stat: "Full Revenue Cycle",  desc: "From admission to final settlement — every step managed for you",          color: "#E89098" },
+  { stat: "Speed & Accuracy", desc: "Faster billing cycles with near-zero error rates in claim submissions", color: "#E0A82E" },
+  { stat: "TPA Expertise", desc: "Deep experience with all major TPAs and insurer portals", color: "#3BBFAD" },
+  { stat: "Trusted Hospitals", desc: "Partnered with 200+ leading hospitals across India", color: "#9B8DC4" },
+  { stat: "IRDAI Compliant", desc: "End-to-end secure data handling aligned with regulatory requirements", color: "#5AAAD8" },
+  { stat: "Full Revenue Cycle", desc: "From admission to final settlement — every step managed for you", color: "#E89098" },
 ];
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
     <main>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="bg-[#FBF7F0] pt-14 pb-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-[#FEF0E6] rounded-full px-4 py-1.5 mb-7">
               <CheckCircle size={13} className="text-[#E0A82E]" />
@@ -41,8 +42,8 @@ export default function Home() {
               Fast. Transparent. Reliable Healthcare Financial Solutions.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Pill variant="outline" to="/contact">Get Started Today</Pill>
-              <Pill variant="outline" to="/services">Our Services</Pill>
+              <Pill variant="orange" to="/contact">Get Started Today <ArrowRight size={15} /></Pill>
+              <Pill variant="outline" to="/services"><LayoutGrid size={14} /> Our Services</Pill>
             </div>
           </div>
 
@@ -81,7 +82,7 @@ export default function Home() {
             Why hospitals choose us?{" "}
             <span className="font-extrabold text-[#1a1a2e]">The numbers speak for themselves.</span>
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-md mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-md md:max-w-lg mx-auto">
             <div className="bg-[#E0A82E] rounded-2xl p-8 text-white text-center shadow-md">
               <p className="text-5xl font-extrabold leading-none mb-2">98%</p>
               <p className="text-sm opacity-80 leading-snug">Claim approval rate across all submissions</p>
@@ -105,7 +106,7 @@ export default function Home() {
               Our <Accent>Services</Accent>
             </h2>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-8 gap-5 sm:gap-6">
+          <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-5 md:gap-6">
             {SERVICES.map(({ Icon, label, bg, color }, i) => (
               <div key={i} className="flex flex-col items-center gap-3 group cursor-default">
                 <div
@@ -125,15 +126,15 @@ export default function Home() {
 
       {/* ── Why Choose Us ─────────────────────────────────────────────────── */}
       <section className="py-20 bg-[#FBF7F0]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Illustration: scattered billing/ID cards */}
           <div className="relative flex items-center justify-center min-h-[280px]">
             <div className="absolute w-56 h-56 rounded-full bg-[#E6F7F5]/80" />
             <div className="relative z-10 flex flex-col gap-3">
               {[
-                { label: "Policy #MED-2024-0081",   color: "#E0A82E" },
-                { label: "Claim #CLM-TPA-0928",     color: "#3BBFAD" },
-                { label: "Empanelment: INS-447",     color: "#9B8DC4" },
+                { label: "Policy #MED-2024-0081", color: "#E0A82E" },
+                { label: "Claim #CLM-TPA-0928", color: "#3BBFAD" },
+                { label: "Empanelment: INS-447", color: "#9B8DC4" },
               ].map((card, i) => (
                 <div
                   key={i}

@@ -52,14 +52,14 @@ export function Pill({
 }) {
   const navigate = useNavigate();
   const base =
-    "group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md border-2 border-[rgb(82,82,82)] px-6 font-medium transition-all duration-100 [box-shadow:3px_3px_rgb(82,82,82)] hover:translate-x-[3px] hover:translate-y-[3px] hover:[box-shadow:0px_0px_rgb(82,82,82)]";
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200 ease-out hover:scale-[1.04] hover:shadow-lg active:scale-[0.97]";
   const variants: Record<string, string> = {
-    orange: "bg-[#E0A82E] text-black hover:bg-[#d4712e]",
+    orange: "bg-[#E0A82E] text-white shadow-md hover:bg-[#c9941a] hover:shadow-[#E0A82E]/30",
     outline:
-      "bg-transparent text-[#E0A82E] hover:bg-[#E0A82E] hover:text-black",
-    teal: "bg-[#3BBFAD] text-black hover:bg-[#2ea899]",
+      "bg-transparent text-[#1a1a2e] border-2 border-[#1a1a2e]/20 hover:border-[#E0A82E] hover:text-[#E0A82E] hover:bg-[#FEF0E6]",
+    teal: "bg-[#3BBFAD] text-white shadow-md hover:bg-[#2ea899] hover:shadow-[#3BBFAD]/30",
     "ghost-orange":
-      "bg-[#FEF0E6] text-[#E0A82E] hover:bg-[#E0A82E] hover:text-black",
+      "bg-[#FEF0E6] text-[#E0A82E] hover:bg-[#E0A82E] hover:text-white",
   };
   const handleClick = () => {
     if (to) navigate(to);
@@ -126,10 +126,9 @@ export function Header() {
               to={to}
               end={to === "/"}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-[#E0A82E]"
-                    : "text-[#4a4a6a] hover:text-[#E0A82E]"
+                `text-sm font-medium transition-colors ${isActive
+                  ? "text-[#E0A82E]"
+                  : "text-[#4a4a6a] hover:text-[#E0A82E]"
                 }`
               }
             >
@@ -138,8 +137,9 @@ export function Header() {
           ))}
           <Link
             to="/contact"
-            className="group relative inline-flex h-9 items-center justify-center overflow-hidden rounded-md border-2 border-[rgb(82,82,82)] bg-[#E0A82E] px-6 font-medium text-black transition-all duration-100 [box-shadow:3px_3px_rgb(82,82,82)] hover:translate-x-[3px] hover:translate-y-[3px] hover:[box-shadow:0px_0px_rgb(82,82,82)]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#E0A82E] px-5 py-2 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-[#c9941a] hover:scale-[1.04] hover:shadow-lg hover:shadow-[#E0A82E]/30 active:scale-[0.97]"
           >
+            <Phone size={14} />
             Contact Us
           </Link>
         </nav>
@@ -161,8 +161,7 @@ export function Header() {
               to={to}
               end={to === "/"}
               className={({ isActive }) =>
-                `text-left text-base font-semibold py-0.5 ${
-                  isActive ? "text-[#E0A82E]" : "text-[#4a4a6a]"
+                `text-left text-base font-semibold py-0.5 ${isActive ? "text-[#E0A82E]" : "text-[#4a4a6a]"
                 }`
               }
               onClick={() => setOpen(false)}
@@ -193,6 +192,9 @@ const TESTIMONIALS = [
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format",
     quoteColor: "#E0A82E",
+    badge: "Faster Processing",
+    badgeColor: "#E0A82E",
+    badgeBg: "#FEF0E6",
   },
   {
     name: "Sneha Patel",
@@ -201,6 +203,9 @@ const TESTIMONIALS = [
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&auto=format",
     quoteColor: "#3BBFAD",
+    badge: "Reduced Leakage",
+    badgeColor: "#3BBFAD",
+    badgeBg: "#E6F7F5",
   },
   {
     name: "Vikram Nair",
@@ -209,13 +214,21 @@ const TESTIMONIALS = [
     avatar:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&auto=format",
     quoteColor: "#9B8DC4",
+    badge: "Better Accuracy",
+    badgeColor: "#9B8DC4",
+    badgeBg: "#EDE8F7",
   },
 ];
 
 export function TestimonialsBlock() {
+  const [active, setActive] = useState(1);
+  const prev = () => setActive((a) => (a - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  const next = () => setActive((a) => (a + 1) % TESTIMONIALS.length);
+
   return (
     <section className="py-20 bg-[#FBF7F0]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        {/* Heading */}
         <div className="text-center mb-12">
           <p className="text-xs font-bold text-[#E0A82E] uppercase tracking-[0.18em] mb-3">
             What hospitals say
@@ -225,49 +238,114 @@ export function TestimonialsBlock() {
           </h2>
         </div>
 
-        {/* Avatar strip */}
-        <div className="flex justify-center items-end gap-6 mb-10 flex-wrap">
-          {TESTIMONIALS.map((t, i) => (
-            <div key={i} className="flex flex-col items-center gap-2">
-              <img
-                src={t.avatar}
-                alt={t.name}
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow-md"
-              />
-              <div className="bg-white rounded-full px-3 py-1 shadow flex items-center gap-1.5">
+        {/* Avatar strip with arrows */}
+        <div className="flex justify-center items-center gap-6 mb-10">
+
+          <button
+            onClick={prev}
+            className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#1a1a2e] hover:bg-[#E0A82E] hover:text-white transition-all duration-200 flex-shrink-0"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+
+          {/* Avatars */}
+          <div className="flex items-end gap-5">
+            {TESTIMONIALS.map((t, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className="flex flex-col items-center gap-2 transition-all duration-200"
+              >
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className={`w-12 h-12 object-cover rounded-full transition-all duration-300 ${i === active
+                    ? "ring-4 ring-[#3BBFAD] ring-offset-2 shadow-lg"
+                    : "ring-2 ring-white shadow-md opacity-70"
+                    }`}
+                />
                 <Stars n={5} size={10} />
-              </div>
-            </div>
-          ))}
+              </button>
+            ))}
+          </div>
+
+
+          <button
+            onClick={next}
+            className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#1a1a2e] hover:bg-[#E0A82E] hover:text-white transition-all duration-200 flex-shrink-0"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
         </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
-            >
-              <Quote
-                size={28}
-                style={{ color: t.quoteColor }}
-                className="mb-5 opacity-90 flex-shrink-0"
-              />
-              <p className="text-[#4a4a6a] text-sm leading-relaxed flex-1 mb-6">
-                {t.text}
-              </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-black/[0.05]">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-bold text-sm text-[#1a1a2e]">{t.name}</p>
-                  <p className="text-xs text-[#9ca3af] mt-0.5">{t.role}</p>
+          {TESTIMONIALS.map((t, i) => {
+            const isActive = i === active;
+            return (
+              <div
+                key={i}
+                onClick={() => setActive(i)}
+                className={`relative rounded-2xl p-7 flex-col cursor-pointer transition-all duration-300 overflow-hidden ${isActive
+                  ? "bg-white border-2 border-[#3BBFAD] shadow-xl flex"
+                  : "bg-white border-2 border-transparent shadow-sm hover:shadow-md hover:-translate-y-1 hidden md:flex"
+                  }`}
+              >
+                {/* Card top roww */}
+                <div className="flex items-start justify-between mb-5">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: t.badgeBg }}
+                  >
+                    <Quote size={16} style={{ color: t.quoteColor }} />
+                  </div>
+                  <span
+                    className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-full"
+                    style={{ backgroundColor: t.badgeBg, color: t.badgeColor }}
+                  >
+                    <Shield size={9} />
+                    {t.badge}
+                  </span>
                 </div>
+
+                {/* Quote text */}
+                <p className="text-[#4a4a6a] text-sm leading-relaxed flex-1 mb-6">
+                  {t.text}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-4 border-t border-black/[0.05]">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-bold text-sm text-[#1a1a2e]">{t.name}</p>
+                    <p className="text-xs text-[#9ca3af] mt-0.5">{t.role}</p>
+                  </div>
+                </div>
+
+                <div
+                  className="absolute bottom-0 right-0 w-20 h-20 rounded-tl-full opacity-10"
+                  style={{ backgroundColor: t.quoteColor }}
+                />
               </div>
-            </div>
+            );
+          })}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`rounded-full transition-all duration-300 ${i === active
+                ? "w-6 h-2.5 bg-[#E0A82E]"
+                : "w-2.5 h-2.5 bg-[#1a1a2e]/20 hover:bg-[#1a1a2e]/40"
+                }`}
+            />
           ))}
         </div>
       </div>
@@ -289,33 +367,35 @@ export function Footer() {
   return (
     <footer className="bg-[#1a1a2e] text-white">
       {/* Partner strip */}
-      <div className="border-b border-white/10 overflow-x-auto">
-        <div className="text-center text-white/40 text-sm mt-2 uppercase tracking-[0.18em] font-semibold">
-          Partners 
+      <div className="border-b border-black/[0.06] overflow-hidden bg-[#FBF7F0]">
+        <div className="text-center text-[#1a1a2e]/40 text-sm mt-2 uppercase tracking-[0.18em] font-semibold">
+          Partners
         </div>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3 flex items-center gap-4 min-w-max sm:min-w-0 sm:justify-center">
-          {PARTNERS.map((p, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 bg-white/[0.07] hover:bg-white/[0.12] transition-colors rounded-xl px-4 py-3 cursor-default"
-            >
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 overflow-hidden py-4">
+          <div className="flex gap-4 animate-[marquee_18s_linear_infinite] w-max">
+            {[...PARTNERS, ...PARTNERS].map((p, i) => (
               <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-extrabold text-white flex-shrink-0"
-                style={{ backgroundColor: p.color }}
+                key={i}
+                className="flex items-center gap-3 bg-white hover:bg-[#FEF0E6] transition-colors rounded-xl px-4 py-3 cursor-default shadow-sm flex-shrink-0"
               >
-                {p.name[0]}
-              </div>
-              <div>
-                <p className="text-xs font-semibold leading-none mb-1.5">
-                  {p.name}
-                </p>
-                <div className="flex items-center gap-1">
-                  <Star size={9} className="fill-[#E0A82E] text-[#E0A82E]" />
-                  <span className="text-[10px] text-white/50">{p.rating}</span>
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-extrabold text-white flex-shrink-0"
+                  style={{ backgroundColor: p.color }}
+                >
+                  {p.name[0]}
+                </div>
+                <div>
+                  <p className="text-xs font-semibold leading-none mb-1.5 text-[#1a1a2e]">
+                    {p.name}
+                  </p>
+                  <div className="flex items-center gap-1">
+                    <Star size={9} className="fill-[#E0A82E] text-[#E0A82E]" />
+                    <span className="text-[10px] text-[#1a1a2e]/50">{p.rating}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
